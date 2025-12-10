@@ -1,45 +1,858 @@
 <!DOCTYPE html>
-<span>First session participation</span>
-<span class="value">64 participants</span>
-</div>
-<div class="bar-track">
-<div class="bar-fill first"></div>
-</div>
-<div class="bar-label-row" style="margin-top: 10px;">
-<span>Most recent session participation</span>
-<span class="value">243 participants</span>
-</div>
-<div class="bar-track">
-<div class="bar-fill latest"></div>
-</div>
-<p class="muted">Participation has increased steadily from the inaugural launch to the latest sessions as awareness and membership have grown.</p>
-</div>
-</div>
-</div>
-</section>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IPC Community of Practice - Knowledge Sharing Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #020618;
+      --bg-soft: #020b23;
+      --card: #071425;
+      --card-soft: #0b1930;
+      --primary: #34d3c5;
+      --primary-soft: rgba(52, 211, 197, 0.18);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.2);
+      --text-main: #e5f0ff;
+      --text-soft: #a3b5d9;
+      --border-subtle: rgba(148, 163, 184, 0.25);
+      --danger: #fb7185;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.65);
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<section id="connect" class="card">
-<div class="card-header">
-<div>
-<div class="card-title">Staying connected</div>
-</div>
-</div>
-<div class="card-body">
-<p>
-The IPC Community of Practice continues to expand the range of topics and regions represented. New sessions will focus on practical implementation challenges, monitoring and evaluation of IPC programmes and the integration of IPC with broader quality of care initiatives.
-</p>
-<p style="margin-top: 10px;">
-For further information, potential collaboration or to share country experience suggestions for upcoming sessions, colleagues can reach the coordination team through the IPC Global Community of Practice platform.
-</p>
-<a class="btn-secondary" href="mailto:ipcglobalcommunity@who.int">
-<span class="icon-download">✉</span>
-<span>ipcglobalcommunity@who.int</span>
-</a>
-</div>
-</section>
-</div>
-</main>
-</div>
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #0f172a 0, #020617 52%, #000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
+    }
+
+    header.site-header {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
+      border-radius: 28px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 18px;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 16px;
+      background: radial-gradient(circle at 20% 0, #22c55e 0, #14b8a6 28%, #0369a1 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5f0ff;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 18px;
+      box-shadow: 0 12px 26px rgba(15, 118, 110, 0.55);
+    }
+
+    .brand-text h1 {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-text p {
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-top: 2px;
+    }
+
+    nav.top-nav {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav.top-nav a {
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: var(--text-soft);
+      border: 1px solid transparent;
+      transition: all 0.18s ease-out;
+    }
+
+    nav.top-nav a:hover {
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      color: #f9fafb;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 18px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-primary span.icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    main {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 22px;
+    }
+
+    @media (max-width: 960px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      header.site-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    section {
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #0b1730 0, var(--card) 45%, var(--card-soft) 100%);
+      border-radius: var(--radius-xl);
+      padding: 22px 22px 20px 22px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .card-pill {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      color: var(--text-soft);
+      white-space: nowrap;
+    }
+
+    .card-body p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--text-soft);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-soft);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .stat-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 16px;
+      padding: 12px 14px;
+      border: 1px solid rgba(148, 163, 184, 0.38);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 2px;
+    }
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .stat-caption {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-top: 4px;
+    }
+
+    .webinar-list {
+      margin-top: 14px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .webinar-header,
+    .webinar-row {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 2.2fr) minmax(0, 1fr);
+      gap: 12px;
+      padding: 10px 14px;
+      align-items: flex-start;
+    }
+
+    .webinar-header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      background: linear-gradient(to right, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.8));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    }
+
+    .webinar-row:nth-child(odd) {
+      background: rgba(15, 23, 42, 0.6);
+    }
+
+    .webinar-row:nth-child(even) {
+      background: rgba(15, 23, 42, 0.82);
+    }
+
+    .webinar-date {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .webinar-topic {
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    .webinar-region {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .impact-layout {
+      display: grid;
+      grid-template-columns: 1.4fr 1.1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 960px) {
+      .impact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .donut-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), rgba(15, 23, 42, 0.96));
+      border-radius: 20px;
+      padding: 18px 18px 16px 18px;
+      border: 1px solid rgba(59, 130, 246, 0.5);
+    }
+
+    .donut-shell {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .donut-figure {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: conic-gradient(var(--primary) 0deg 325deg, rgba(15, 23, 42, 1) 325deg 360deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .donut-figure::after {
+      content: "";
+      position: absolute;
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      background: radial-gradient(circle at top, #020617, #020617);
+      box-shadow: inset 0 0 0 1px rgba(30, 64, 175, 0.8);
+    }
+
+    .donut-center {
+      position: relative;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .donut-center .value {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.05;
+    }
+
+    .donut-center .label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      margin-top: 2px;
+    }
+
+    .donut-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .legend-swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+    }
+
+    .legend-swatch.primary {
+      background: var(--primary);
+    }
+
+    .legend-swatch.rest {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .legend-label {
+      font-size: 12px;
+    }
+
+    .legend-value {
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .bar-card {
+      background: radial-gradient(circle at top left, rgba(52, 211, 197, 0.06), rgba(15, 23, 42, 0.96));
+      border-radius: 18px;
+      padding: 14px 16px 14px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .bar-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 3px;
+    }
+
+    .bar-label-row span.value {
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .bar-track {
+      width: 100%;
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+    }
+
+    .bar-fill.first {
+      width: 26%;
+    }
+
+    .bar-fill.latest {
+      width: 100%;
+    }
+
+    .agenda-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.6fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 960px) {
+      .agenda-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .agenda-meta {
+      font-size: 13px;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .agenda-meta strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .agenda-table {
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      overflow: hidden;
+      background: rgba(15, 23, 42, 0.82);
+      font-size: 13px;
+    }
+
+    .agenda-row.header,
+    .agenda-row.item {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1.7fr) minmax(0, 1.1fr);
+      gap: 12px;
+      padding: 9px 12px;
+      align-items: flex-start;
+    }
+
+    .agenda-row.header {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      background: linear-gradient(to right, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.9));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .agenda-row.item:nth-child(even) {
+      background: rgba(15, 23, 42, 0.96);
+    }
+
+    .agenda-row.item:nth-child(odd) {
+      background: rgba(15, 23, 42, 0.86);
+    }
+
+    .agenda-time {
+      white-space: nowrap;
+    }
+
+    .agenda-topic {
+      color: var(--text-main);
+      word-break: break-word;
+    }
+
+    .agenda-speaker {
+      color: var(--text-soft);
+      word-break: break-word;
+    }
+
+    .agenda-row span {
+      min-width: 0;
+    }
+
+    @media (max-width: 640px) {
+      .agenda-row.item {
+        grid-template-columns: 90px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+      }
+
+      .agenda-row.item .agenda-speaker {
+        grid-column: 2 / -1;
+      }
+    }
+
+    .agenda-time {
+      white-space: nowrap;
+    }
+
+    .agenda-topic {
+      color: var(--text-main);
+    }
+
+    .agenda-speaker {
+      color: var(--text-soft);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-main);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      margin-top: 14px;
+    }
+
+    .btn-secondary .icon-download {
+      font-size: 14px;
+    }
+
+    .muted {
+      color: var(--text-soft);
+      font-size: 12px;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand-block">
+        <div class="brand-mark">IPC</div>
+        <div class="brand-text">
+          <h1>IPC Community of Practice</h1>
+          <p>Global knowledge sharing platform for infection prevention and control</p>
+        </div>
+      </div>
+      <nav class="top-nav">
+        <a href="#about">About</a>
+        <a href="#schedule">Webinar schedule</a>
+        <a href="#impact">Impact</a>
+        <a href="#agenda">Example agenda</a>
+        <a href="#connect">Connect</a>
+        <a href="#impact" class="btn-primary"><span class="icon">⭑</span>View participation</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Left column: About, webinars and example agenda -->
+      <div>
+        <section id="about" class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">About the IPC Community of Practice and webinars</div>
+            </div>
+            <div class="card-pill">Launched March 2022</div>
+          </div>
+          <div class="card-body">
+            <p>
+              The Infection Prevention and Control (IPC) Community of Practice links national, sub national and facility level teams that are responsible for IPC programmes. Through interactive ninety minute online sessions it supports colleagues to share practical experience, learn from peers and translate IPC guidance into action in health facilities.
+            </p>
+            <p style="margin-top: 10px;">
+              Sessions are led by WHO headquarters together with regional offices and partner institutions. Each session usually includes two or three country case studies, polling questions and a moderated panel discussion. Materials, tools and recordings are shared on the IPC Global Community of Practice platform to support continuous learning.
+            </p>
+            <div class="tag-row">
+              <span class="tag">Focus on implementation and policy uptake</span>
+              <span class="tag">Country experience and peer discussion</span>
+              <span class="tag">Certificates of participation available</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="schedule" class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Past webinar schedule</div>
+            </div>
+            <div class="card-pill">Selected 2022 sessions</div>
+          </div>
+          <div class="card-body">
+            <p>
+              Topics for the first series of IPC Community of Practice live sessions were selected based on priorities raised by participants. The table summarises the core sessions delivered in 2022.
+            </p>
+
+            <div class="webinar-list">
+              <div class="webinar-header">
+                <span>Date</span>
+                <span>Topic</span>
+                <span>Region or notes</span>
+              </div>
+              <div class="webinar-row">
+                <div class="webinar-date">8 March 2022</div>
+                <div class="webinar-topic">Inaugural launch. Introduction to the Global IPC Community of Practice platform</div>
+                <div class="webinar-region">Global launch session</div>
+              </div>
+              <div class="webinar-row">
+                <div class="webinar-date">29 March 2022</div>
+                <div class="webinar-topic">Prevention, identification and management of health worker infection in the context of COVID 19</div>
+                <div class="webinar-region">Global</div>
+              </div>
+              <div class="webinar-row">
+                <div class="webinar-date">31 May 2022</div>
+                <div class="webinar-topic">Learning from the data. Reviewing the World Health Assembly Resolution on IPC and its implications for countries</div>
+                <div class="webinar-region">Global</div>
+              </div>
+              <div class="webinar-row">
+                <div class="webinar-date">12 July 2022</div>
+                <div class="webinar-topic">Implementation of IPC programmes. Lessons from the field</div>
+                <div class="webinar-region">WHO African Region</div>
+              </div>
+              <div class="webinar-row">
+                <div class="webinar-date">23 August 2022</div>
+                <div class="webinar-topic">Implementation of IPC programmes. Lessons from the field, part II</div>
+                <div class="webinar-region">WHO Eastern Mediterranean Region</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="agenda" class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Example webinar agenda</div>
+            </div>
+            <div class="card-pill">Turning COVID 19 into a learning opportunity</div>
+          </div>
+          <div class="card-body">
+            <p>
+              The example below presents the structure of a ninety minute IPC Community of Practice session on sustaining IPC achievements from the COVID 19 response. It illustrates the balance of evidence updates, country perspectives and policy discussion.
+            </p>
+            <div class="agenda-grid">
+              <div class="agenda-meta">
+                <p><strong>Title</strong><br />Maintaining infection prevention and control achievements from the COVID 19 response</p>
+                <p><strong>Format</strong><br />Ninety minute virtual session with interpretation in Arabic, French and Portuguese.</p>
+                <p><strong>Session objectives</strong></p>
+                <ul style="margin-left: 16px; margin-top: 4px;">
+                  <li>Review key IPC lessons from the COVID 19 pandemic.</li>
+                  <li>Discuss how to maintain and institutionalise IPC gains in health facilities.</li>
+                  <li>Highlight country experience, challenges and practical approaches.</li>
+                </ul>
+                <a class="btn-secondary" href="agenda-ipc-cop-2022-10-25.pdf">
+                  <span class="icon-download">⬇</span>
+                  <span>Download full agenda (PDF)</span>
+                </a>
+                <p class="muted">Link can point to a hosted PDF of the session agenda and related materials.</p>
+              </div>
+              <div class="agenda-table">
+                <div class="agenda-row header">
+                  <span>Time</span>
+                  <span>Session segment</span>
+                  <span>Facilitator or speaker</span>
+                </div>
+                <div class="agenda-row item">
+                  <span class="agenda-time">14:00 - 14:05</span>
+                  <span class="agenda-topic">Housekeeping and platform orientation</span>
+                  <span class="agenda-speaker">ECHO Institute team</span>
+                </div>
+                <div class="agenda-row item">
+                  <span class="agenda-time">14:05 - 14:10</span>
+                  <span class="agenda-topic">Welcome remarks and introduction of speakers</span>
+                  <span class="agenda-speaker">Session chair from WHO headquarters</span>
+                </div>
+                <div class="agenda-row item">
+                  <span class="agenda-time">14:10 - 14:30</span>
+                  <span class="agenda-topic">Maintaining IPC measures for COVID 19 in health care facilities</span>
+                  <span class="agenda-speaker">Technical lead from WHO headquarters</span>
+                </div>
+                <div class="agenda-row item">
+                  <span class="agenda-time">14:25 - 14:45</span>
+                  <span class="agenda-topic">Understanding the impact of COVID 19 on hospital acquired bacteraemia</span>
+                  <span class="agenda-speaker">Researcher from academic partner institution</span>
+                </div>
+                <div class="agenda-row item">
+                  <span class="agenda-time">14:45 - 14:55</span>
+                  <span class="agenda-topic">Policy uptake and approaches, including live poll</span>
+                  <span class="agenda-speaker">Panel with country representatives</span>
+                </div>
+                <div class="agenda-row item">
+                  <span class="agenda-time">14:55 - 15:10</span>
+                  <span class="agenda-topic">Reflections on learning from COVID 19</span>
+                  <span class="agenda-speaker">Regional IPC champion</span>
+                </div>
+                <div class="agenda-row item">
+                  <span class="agenda-time">15:10 - 15:20</span>
+                  <span class="agenda-topic">Open discussion and questions from participants</span>
+                  <span class="agenda-speaker">All speakers and participants</span>
+                </div>
+                <div class="agenda-row item">
+                  <span class="agenda-time">15:20 - 15:25</span>
+                  <span class="agenda-topic">Updates on follow up survey and next steps</span>
+                  <span class="agenda-speaker">WHO headquarters and partners</span>
+                </div>
+                <div class="agenda-row item">
+                  <span class="agenda-time">15:25 - 15:30</span>
+                  <span class="agenda-topic">Closing remarks and information on future sessions</span>
+                  <span class="agenda-speaker">Session chair</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right column: Impact and staying connected -->
+      <div>
+        <section id="impact" class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Participation and reach</div>
+            </div>
+            <div class="card-pill">At a glance</div>
+          </div>
+          <div class="card-body">
+            <div class="stat-grid">
+              <div class="stat-card">
+                <div class="stat-label">Registered members</div>
+                <div class="stat-value">269</div>
+                <div class="stat-caption">From 51 countries across the AFRO and EMRO regions, with expansion to EURO planned.</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Unique participants</div>
+                <div class="stat-value">243</div>
+                <div class="stat-caption">Individuals who have joined at least one live session to date.</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Interactive live sessions</div>
+                <div class="stat-value">4</div>
+                <div class="stat-caption">Ninety minute knowledge sharing webinars delivered from launch to mid 2022.</div>
+              </div>
+            </div>
+
+            <div class="impact-layout" style="margin-top: 16px;">
+              <div class="donut-card">
+                <div class="donut-shell">
+                  <div class="donut-figure">
+                    <div class="donut-center">
+                      <div class="value">243</div>
+                      <div class="label">Unique attendees</div>
+                    </div>
+                  </div>
+                  <div class="donut-legend">
+                    <div class="legend-item">
+                      <div class="legend-swatch primary"></div>
+                      <div class="legend-label">
+                        <span class="legend-value">243</span> participants who have attended at least one webinar</div>
+                    </div>
+                    <div class="legend-item">
+                      <div class="legend-swatch rest"></div>
+                      <div class="legend-label">Difference between total registered members and unique attendees</div>
+                    </div>
+                    <p class="muted">Visual represents the proportion of registered members who have already taken part in live sessions.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="bar-card">
+                <div class="bar-label-row">
+                  <span>First session participation</span>
+                  <span class="value">64 participants</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill first"></div>
+                </div>
+                <div class="bar-label-row" style="margin-top: 10px;">
+                  <span>Most recent session participation</span>
+                  <span class="value">243 participants</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill latest"></div>
+                </div>
+                <p class="muted">Participation has increased steadily from the inaugural launch to the latest sessions as awareness and membership have grown.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="connect" class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Staying connected</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <p>
+              The IPC Community of Practice continues to expand the range of topics and regions represented. New sessions will focus on practical implementation challenges, monitoring and evaluation of IPC programmes and the integration of IPC with broader quality of care initiatives.
+            </p>
+            <p style="margin-top: 10px;">
+              For further information, potential collaboration or to share country experience suggestions for upcoming sessions, colleagues can reach the coordination team through the IPC Global Community of Practice platform.
+            </p>
+            <a class="btn-secondary" href="mailto:ipcglobalcommunity@who.int">
+              <span class="icon-download">✉</span>
+              <span>ipcglobalcommunity@who.int</span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
 </body>
 </html>
